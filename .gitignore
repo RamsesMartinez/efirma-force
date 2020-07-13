@@ -16,7 +16,7 @@ composer.phar
 # End of https://www.toptal.com/developers/gitignore/api/composer,dotenv
 
 # Fiel Files
-src/fiel/*
-!src/fiel/.gitkeep
+/fiel/*
+!/fiel/.gitkeep
 
 *.dic

@@ -1,16 +1,27 @@
 <?php declare(strict_types=1);
 
-$cerFile = $ROOT_DIR . '\\src\\fiel\\' . $_ENV['CER_FILE'];
-$pemKeyFile = $ROOT_DIR . '\\src\\fiel\\' . $_ENV['PEM_KEY_FILE'];
-
+$cerFile = '../fiel/' . $_ENV['CER_FILE'];
+$pemKeyFile = '../fiel/' . $_ENV['PEM_KEY_FILE'];
 $passPhrase = 'Ramy1296'; // contraseñas para abrir la llave privada
+$file_path = $ROOT_DIR . "\\dicts\\" . $_ENV['PASSWORDS_FILE'];
 
-echo $cerFile;
+$file_passwords = fopen($file_path, "r") or die("Unable to open file!");
 
-// $handle = fopen("inputfile.txt", "r");
+// echo fread($file_passwords,filesize($file_path));
+echo 'probando... <br>';
 
-$fiel = PhpCfdi\Credentials\Credential::openFiles($cerFile, $pemKeyFile, $passPhrase);
+while ($word = fgets($file_passwords))  {
+    try {
+        $word = trim($word);
 
-// objeto certificado
-$certificado = $fiel->certificate();
-echo $certificado->rfc(), PHP_EOL; // el RFC del certificado
+        $fiel = PhpCfdi\Credentials\Credential::openFiles($cerFile, $pemKeyFile, $word);
+        
+        // objeto certificado
+        $certificado = $fiel->certificate();
+        
+        echo 'Contraseña encontrada: ' . $word;
+
+    } catch (Exception $ex) {}
+}
+echo '<br> fin programa.';
+fclose($file_passwords);
