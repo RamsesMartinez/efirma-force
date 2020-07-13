@@ -2,7 +2,6 @@
 
 $cerFile = '../fiel/' . $_ENV['CER_FILE'];
 $pemKeyFile = '../fiel/' . $_ENV['PEM_KEY_FILE'];
-$passPhrase = 'Ramy1296'; // contraseñas para abrir la llave privada
 $file_path = $ROOT_DIR . "\\dicts\\" . $_ENV['PASSWORDS_FILE'];
 
 $file_passwords = fopen($file_path, "r") or die("Unable to open file!");
