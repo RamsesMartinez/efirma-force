@@ -1,0 +1,13 @@
+{
+    "name": "dev/firma",
+    "require": {
+        "phpcfdi/credentials": "^1.1",
+        "vlucas/phpdotenv": "^5.0"
+    },
+    "authors": [
+        {
+            "name": "Ramses Martinez",
+            "email": "ramses.mtz96@gmail.com"
+        }
+    ]
+}
